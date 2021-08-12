@@ -1,0 +1,152 @@
+﻿if said("begin speech", 6) or said("start speech") or said("Activate speech")  then
+var.listen=true
+speech.amy.text = "Speech commands - now active.";
+end if
+
+if said("stop speech", 6) or said("Deactivate speech") then
+var.listen=false
+speech.amy.text = "Speech commands - deactivated.";
+end if
+
+
+
+if var.listen ==true then
+
+
+//Flight Systems
+if said("Flight Ready") then
+press(key.R)
+release(key.R)
+speech.amy.text = "All Flight Systems Initialized";
+var.Power=1
+var.Engines=1
+var.Shields=1
+var.Weapons=1
+end if
+
+if said("Weapons Off") && var.Weapons == 1 && var.Power == 1 then
+press(key.P)
+release(key.P)
+var.Weapons = 0
+end if
+
+if said("Weapons On") && var.Weapons == 0 && var.Power == 1 then
+press(key.P)
+release(key.P)
+var.Weapons = 1
+end if
+
+if said("Shields Off") && var.Shields == 1 && var.Power == 1 then
+press(key.O)
+release(key.O)
+var.Shields = 0
+end if
+
+if said("Shields On") && var.Shields == 0 && var.Power == 1 then
+press(key.O)
+release(key.O)
+var.Shields = 1
+end if
+
+if said("Power Off") && var.Power == 1 then
+press(key.U)
+wait 50 ms
+release(key.U)
+var.Power = 0
+end if
+
+if said("Power On") && var.Power == 0 then
+press(key.U)
+wait 50 ms
+release(key.U)
+var.Power = 1
+end if
+
+// Countermeasures
+if said ("Program Flares") or said ("Program Countermeasures") then
+press(key.RightAlt)
+press(key.H)
+release(key.H)
+wait 20 ms
+press(key.H)
+release(key.H)
+wait 10 ms
+release(key.RightAlt)
+end if
+
+if said ("Flares") or said ("Deploy Decoys") then
+press(key.H)
+release(key.H)
+end if
+
+if said ("Chaff") or said ("Deploy Noise") then
+press(key.J)
+release(key.J)
+end if
+
+// Power Triangle
+if said ("Triangle Weapons") then
+press(key.F5)
+wait 300 ms
+release(key.F5)
+end if
+
+if said ("Triangle Shields") then
+press(key.F7)
+wait 300 ms
+release(key.F7)
+end if
+
+if said ("Triangle Engines") or said ("Triangle Boost") then
+press(key.F6)
+wait 300 ms
+release(key.F6)
+end if
+
+if said ("Triangle Reset") or said ("Reset Triangle") then
+press(key.F8)
+release(key.F8)
+end if
+
+if said ("Triangle Defensive") or said ("Defensive Triangle") then
+press(key.F8)
+release(key.F8)
+press(key.F6)
+release(key.F6)
+press(key.F7)
+release(key.F7)
+press(key.F6)
+release(key.F6)
+press(key.F7)
+release(key.F7)
+end if
+
+if said ("Triangle Offensive") or said ("Offensive Triangle") then
+press(key.F8)
+release(key.F8)
+press(key.F5)
+release(key.F5)
+press(key.F7)
+release(key.F7)
+press(key.F5)
+release(key.F5)
+press(key.F7)
+release(key.F7)
+end if
+
+if said ("Triangle Aggressive") or said ("Aggressive Triangle") then
+press(key.F8)
+release(key.F8)
+press(key.F5)
+release(key.F5)
+press(key.F6)
+release(key.F6)
+press(key.F5)
+release(key.F5)
+press(key.F6)
+release(key.F6)
+end if
+
+// end var listen
+end if
+
